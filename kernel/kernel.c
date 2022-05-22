@@ -7,26 +7,26 @@
 #define YELLOW 14
 #define WHITE_COLOR 15
 
+#include "sysfunctions.h"
+
 unsigned short *terminal_buffer;
 unsigned int vga_index;
 
 void clear_screen() {
     int index = 0;
-    /* there are 25 lines each of 80 columns;
-       each element takes 2 bytes */
+    /* there are 25 lines each of 80 columns each element takes 2 bytes */
     while (index < 80 * 25 * 2) {
-            terminal_buffer[index] = ' ';
-            index += 2;
+        terminal_buffer[index] = ' ';
+        index += 2;
     }
 }
 
 void print(char *str, unsigned char color) {
     int index = 0;
     while (str[index]) {
-            terminal_buffer[vga_index] = (unsigned
-             short)str[index]|(unsigned short)color << 8;
-            index++;
-            vga_index++;
+        terminal_buffer[vga_index] = (unsigned short)str[index]|(unsigned short)color << 8;
+        index++;
+        vga_index++;
     }
 }
 
@@ -35,7 +35,7 @@ int main() {
     vga_index = 0;
     clear_screen();
     print("Antique", WHITE_COLOR);
-    vga_index = 80;    /* next line */
+    vga_index = 80; /* next line */
     print("This is it for now", WHITE_COLOR);
     return 0;
 }
