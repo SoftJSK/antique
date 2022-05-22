@@ -1,2 +1,2 @@
 # antique
-a simple kernel made just for fun
+a simple kernel and OS made just for fun
