@@ -8,13 +8,14 @@
 #define WHITE_COLOR 15
 
 #include "sysfunctions.h"
+#include "keyboard.h"
 
 unsigned short *terminal_buffer;
 unsigned int vga_index;
 
 void clear_screen() {
     int index = 0;
-    /* there are 25 lines each of 80 columns each element takes 2 bytes */
+    // there are 25 lines each of 80 columns each element takes 2 bytes
     while (index < 80 * 25 * 2) {
         terminal_buffer[index] = ' ';
         index += 2;
