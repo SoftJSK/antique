@@ -17,10 +17,10 @@ bootloader: boot/x86/boot.asm
 	nasm -f elf32 boot/x86/boot.asm -o boot.o
 
 kernel: kernel/kernel.c
-	gcc -m32 -c kernel/kernel.c -o kernel.o
+	gcc -m32 -c kernel/*.c
 	
-linker: linker.ld boot.o kernel.o
-	ld -m elf_i386 -T linker.ld -o kernel boot.o kernel.o
+linker: linker.ld
+	ld -m elf_i386 -T linker.ld -o antique *.o
 
 iso: kernel
 	$(MKDIR) $(GRUB_PATH)

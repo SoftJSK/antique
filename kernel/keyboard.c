@@ -1,6 +1,6 @@
 #include "keyboard.h"  
 #include "kernel.h"
-#include <sys/io.h>
+#include "io.h"
 
 unsigned short *terminal_buffer;
 unsigned int vga_index;

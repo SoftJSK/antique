@@ -1,5 +1,5 @@
-#ifndef SYS_FUNCTIONS_H
-#define SYS_FUNCTIONS_H
+#ifndef SYSFUNCTIONS_H
+#define SYSFUNCTIONS_H
 
 void shutdown();
 void reboot();
