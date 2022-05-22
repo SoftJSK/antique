@@ -30,4 +30,4 @@ iso: kernel
 
 .PHONY: clean
 clean:
-	$(RM) *.o
+	$(RM) *.o *iso kernel

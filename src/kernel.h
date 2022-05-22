@@ -9,6 +9,7 @@
 #define WHITE_COLOR 15
 
 void print(char* str, unsigned char color);
+void printChar(char str, unsigned char color);
 void clearScreen(void);
 
 #endif

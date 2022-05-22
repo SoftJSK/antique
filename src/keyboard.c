@@ -4,6 +4,9 @@
 int clicked = 0;
 int canSend = 0;
 
+static unsigned short *terminal_buffer;
+static unsigned int vga_index;
+
 static __inline unsigned char
 inb (unsigned short int __port)
 {
@@ -14,7 +17,7 @@ inb (unsigned short int __port)
 }
 
 
-unsigned char get_scancode()
+unsigned char getScancode()
 {
     unsigned char inputdata;
     inputdata = inb(0x60);
@@ -23,7 +26,7 @@ unsigned char get_scancode()
 
 
 
-void keyboard_handler()
+void keyboardHandler()
 {
     unsigned char scancode;
     unsigned int shift_key = 0;
@@ -31,7 +34,7 @@ void keyboard_handler()
 
     canSend = 0;
 
-    scancode = get_scancode();
+    scancode = getScancode();
     if (scancode == 0x2A)
     {
         shift_key = 1;//Shift key is pressed
@@ -215,6 +218,12 @@ void keyboard_handler()
             character = 'z';
             clicked = 1;
             canSend = 1;
+        }
+
+        if (canSend == 1) {
+            vga_index += 10;
+            printChar(character, YELLOW);
+
         }
     }
 

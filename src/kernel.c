@@ -2,9 +2,8 @@
 #include "keyboard.h"
 #include "kernel.h"
 
-
-unsigned short *terminal_buffer;
-unsigned int vga_index;
+static unsigned short *terminal_buffer;
+static unsigned int vga_index;
 
 void clearScreen() {
     int index = 0;
@@ -24,6 +23,14 @@ void print(char *str, unsigned char color) {
     }
 }
 
+void printChar(char str, unsigned char color) {
+    int index = 0;
+    terminal_buffer[vga_index] = str | (unsigned short)color << 8;
+    index++;
+    vga_index++;
+    
+}
+
 void newLine() {
     vga_index = 80;
 }
@@ -35,5 +42,9 @@ int main() {
     print("Antique", WHITE_COLOR);
     newLine();
     print("This is it for now", WHITE_COLOR);
+    newLine();
+    while (1) {
+        keyboardHandler();
+    }
     return 0;
 }
