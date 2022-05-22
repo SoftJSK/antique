@@ -1,10 +1,9 @@
 CP := cp
 RM := rm -rf
 MKDIR := mkdir -pv
-MV := mv
 
 BIN = kernel
-CFG = grub.cfg
+CFG = boot/grub.cfg
 ISO_PATH := iso
 BOOT_PATH := $(ISO_PATH)/boot
 GRUB_PATH := $(BOOT_PATH)/grub
@@ -16,11 +15,11 @@ all: bootloader kernel linker iso
 bootloader: boot/x86/boot.asm
 	nasm -f elf32 boot/x86/boot.asm -o boot.o
 
-kernel: kernel/kernel.c
-	gcc -m32 -c kernel/*.c
+kernel: src/kernel.c
+	gcc -m32 -c src/*.c
 	
 linker: linker.ld
-	ld -m elf_i386 -T linker.ld -o antique *.o
+	ld -m elf_i386 -T linker.ld -o kernel *.o
 
 iso: kernel
 	$(MKDIR) $(GRUB_PATH)
