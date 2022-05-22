@@ -1,0 +1,11 @@
+TOP PRIORITY:
+makefile fix
+adding a shell - aqsh
+adding a reboot function
+STANDARD UTILITIES TO BE ADDED:
+ls - directory listing, can also be called with the command "dir"
+cd - change directory
+read - read contents of a text file
+zar - text editor
+shutdown - pretty obvious
+reboot - also obvious
