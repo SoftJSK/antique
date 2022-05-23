@@ -3,6 +3,5 @@
 
 void shutdown();
 void reboot();
-static void apm_power_off();
 
 #endif

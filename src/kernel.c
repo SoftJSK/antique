@@ -39,12 +39,10 @@ int main() {
     terminal_buffer = (unsigned short *)VGA_ADDRESS;
     vga_index = 0;
     clearScreen();
-    print("Antique", WHITE_COLOR);
-    newLine();
-    print("This is it for now", WHITE_COLOR);
-    newLine();
     while (1) {
+        print("Antique: ", WHITE_COLOR);
         keyboardHandler();
+        newLine();
     }
     return 0;
 }

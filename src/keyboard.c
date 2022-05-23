@@ -222,7 +222,7 @@ void keyboardHandler()
 
         if (canSend == 1) {
             vga_index += 10;
-            printChar(character, YELLOW);
+            printChar(character, WHITE_COLOR);
 
         }
     }
