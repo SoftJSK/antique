@@ -40,9 +40,43 @@ int main() {
     vga_index = 0;
     clearScreen();
     while (1) {
-        print("Antique: ", WHITE_COLOR);
-        keyboardHandler();
+        print("    -----------------------------", WHITE_COLOR);
         newLine();
+        print("  /                               '\'", WHITE_COLOR);
+        vga_index = 160;
+        print("|                 |                 |", WHITE_COLOR);
+        vga_index = 240;
+        print("|                | |                |", WHITE_COLOR);
+        vga_index = 320;
+        print("|               |   |               |", WHITE_COLOR);
+        vga_index = 400;
+        print("|              |     |              |", WHITE_COLOR);
+        vga_index = 480;
+        print("|             |       |             |", WHITE_COLOR);
+        vga_index = 560;
+        print("|            |         |            |", WHITE_COLOR);
+        vga_index = 640;
+        print("|           |-----------|           |", WHITE_COLOR);
+        vga_index = 720;
+        print("|          |             |          |", WHITE_COLOR);
+        vga_index = 800;
+        print("|         |               |         |", WHITE_COLOR);
+        vga_index = 880;
+        print("|        |                 |        |", WHITE_COLOR);
+        vga_index = 960;
+        print("|       |                   |       |", WHITE_COLOR);
+        vga_index = 1040;
+        print("|      |                     |      |", WHITE_COLOR);
+        vga_index = 1120;
+        print("  '\'                               /", WHITE_COLOR);
+        vga_index = 1200;
+        print("    -----------------------------", WHITE_COLOR);
+        vga_index = 1280;
+        print("Welcome to Antique!", WHITE_COLOR);
+        vga_index = 1360;
+        print("Keyboard test:", WHITE_COLOR);
+        keyboardHandler();
+        vga_index = 1440;
     }
     return 0;
 }
