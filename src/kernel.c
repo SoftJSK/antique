@@ -77,6 +77,8 @@ int main() {
         print("Keyboard test:", WHITE_COLOR);
         keyboardHandler();
         vga_index = 1440;
+        print("Press TAB to erase text.", GREEN);
+        vga_index = 1520;
     }
     return 0;
 }
