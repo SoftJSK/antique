@@ -39,7 +39,7 @@ void printChar(char str, unsigned char color) {
 }
 
 void newLine() {
-    vga_index = 80;
+    vga_index = 80; // newline does not work currently
 }
 
 int main() {
