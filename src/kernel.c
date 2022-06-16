@@ -10,7 +10,7 @@ void clearScreen() {
     // there are 25 lines each of 80 columns each element takes 2 bytes
     while (index < 160 * 50 * 4) {
         terminal_buffer[index] = ' ';
-        index += 2;
+        index += 1;
     }
 }
 
@@ -47,6 +47,7 @@ int main() {
     vga_index = 0;
     clearScreen();
     while (1) {
+        vga_index = 0;
         print("    -----------------------------", WHITE_COLOR);
         newLine();
         print("  /                               '\'", WHITE_COLOR);
@@ -81,11 +82,13 @@ int main() {
         vga_index = 1280;
         print("Welcome to Antique!", WHITE_COLOR);
         vga_index = 1360;
+        print("By SoftJSK", WHITE_COLOR);
+        vga_index = 1440;
         print("Keyboard test:", WHITE_COLOR);
         keyboardHandler();
-        vga_index = 1440;
-        print("Press TAB to erase text.", GREEN);
         vga_index = 1520;
+        print("Press TAB to erase text.", GREEN);
+        vga_index = 1600;
     }
     return 0;
 }

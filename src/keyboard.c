@@ -31,7 +31,6 @@ void keyboardHandler()
     unsigned char scancode;
     unsigned int shift_key = 0;
 
-
     canSend = 0;
 
     scancode = getScancode();
@@ -56,8 +55,102 @@ void keyboardHandler()
             clearScreen();
         }
 
+        if (scancode == 0x0e) {
+            clicked = 0; // backspace
+            vga_index--;
+            print("a", BLACK);
+        }
+
         if (scancode == 0x01) {
-            clicked = 0;
+            clicked = 0; // esc
+        }
+
+        if (scancode == 0x39 && clicked == 0) {
+           
+            character = ' ';
+            clicked = 1;
+            canSend = 1;
+           
+        }
+
+        if (scancode == 0x02 && clicked == 0) {
+           
+            character = '1';
+            clicked = 1;
+            canSend = 1;
+           
+        }
+
+        if (scancode == 0x03 && clicked == 0) {
+           
+            character = '2';
+            clicked = 1;
+            canSend = 1;
+           
+        }
+
+        if (scancode == 0x04 && clicked == 0) {
+           
+            character = '3';
+            clicked = 1;
+            canSend = 1;
+           
+        }
+
+        if (scancode == 0x05 && clicked == 0) {
+           
+            character = '4';
+            clicked = 1;
+            canSend = 1;
+           
+        }
+
+        if (scancode == 0x06 && clicked == 0) {
+           
+            character = '5';
+            clicked = 1;
+            canSend = 1;
+           
+        }
+
+        if (scancode == 0x07 && clicked == 0) {
+           
+            character = '6';
+            clicked = 1;
+            canSend = 1;
+           
+        }
+
+        if (scancode == 0x08 && clicked == 0) {
+           
+            character = '7';
+            clicked = 1;
+            canSend = 1;
+           
+        }
+
+        if (scancode == 0x09 && clicked == 0) {
+           
+            character = '8';
+            clicked = 1;
+            canSend = 1;
+           
+        }
+
+        if (scancode == 0x0A && clicked == 0) {
+           
+            character = '9';
+            clicked = 1;
+            canSend = 1;
+           
+        }
+
+        if (scancode == 0x0B && clicked == 0) {
+           
+            character = '0';
+            clicked = 1;
+            canSend = 1;
+           
         }
 
         if (scancode == 0x1E && clicked == 0) {
@@ -214,16 +307,16 @@ void keyboardHandler()
             canSend = 1;
         }
         if (scancode == 0x2c && clicked == 0) {
-
             character = 'z';
-            clicked = 1;
-            canSend = 1;
+            clicked = 0;
+            canSend = 0;
         }
 
         if (canSend == 1) {
             vga_index += 10;
             printChar(character, WHITE_COLOR);
-
+            clicked = 0;
+            canSend = 0;
         }
     }
 
