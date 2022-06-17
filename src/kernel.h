@@ -11,5 +11,6 @@
 void print(char* str, unsigned char color);
 void printChar(char str, unsigned char color);
 void clearScreen(void);
+void newLine(void);
 
 #endif
