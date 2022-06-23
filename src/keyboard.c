@@ -58,7 +58,7 @@ void keyboardHandler()
         if (scancode == 0x0e) {
             clicked = 0; // backspace
             vga_index--;
-            print("a", BLACK);
+            print(" ", BLACK);
         }
 
         if (scancode == 0x01) {
@@ -308,8 +308,8 @@ void keyboardHandler()
         }
         if (scancode == 0x2c && clicked == 0) {
             character = 'z';
-            clicked = 0;
-            canSend = 0;
+            clicked = 1;
+            canSend = 1;
         }
 
         if (canSend == 1) {
