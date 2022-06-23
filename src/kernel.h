@@ -6,7 +6,7 @@
 #define GREEN 2
 #define RED 4
 #define YELLOW 14
-#define WHITE_COLOR 15
+#define WHITE 15
 
 void print(char* str, unsigned char color);
 void printChar(char str, unsigned char color);

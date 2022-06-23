@@ -314,7 +314,7 @@ void keyboardHandler()
 
         if (canSend == 1) {
             vga_index += 10;
-            printChar(character, WHITE_COLOR);
+            printChar(character, WHITE);
             clicked = 0;
             canSend = 0;
         }
