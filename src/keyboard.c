@@ -11,7 +11,7 @@ static __inline unsigned char
 inb (unsigned short int __port)
 {
   unsigned char _v;
-
+  // grabs scancode using assembly
   __asm__ __volatile__ ("inb %w1,%0":"=a" (_v):"Nd" (__port));
   return _v;
 }
@@ -19,12 +19,11 @@ inb (unsigned short int __port)
 
 unsigned char getScancode()
 {
+    // puts the scancode into a variable and returns it
     unsigned char inputdata;
     inputdata = inb(0x60);
     return inputdata;
 }
-
-
 
 void keyboardHandler()
 {
@@ -70,7 +69,7 @@ void keyboardHandler()
                 clicked = 0; // esc
             }
 
-            if (scancode == 0x39 && clicked == 0) {
+            if (scancode == 0x39 && clicked == 0) { // space
             
                 character = ' ';
                 clicked = 1;
@@ -330,6 +329,7 @@ void keyboardHandler()
 }
 
 void pause() {
+    // pauses code execution until enter is pressed
     while(1) {
         unsigned char scancode;
         scancode = getScancode();

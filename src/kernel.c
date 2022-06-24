@@ -5,6 +5,7 @@
 
 static unsigned short *terminal_buffer;
 static unsigned int vga_index;
+// vga_index defines where characters are written to the screen
 
 void clearScreen() {
     int index = 0;
@@ -18,14 +19,14 @@ void clearScreen() {
 
 void print(char *str, unsigned char color) {
     int index = 0;
-    while (str[index]) {
+    while (str[index]) { // prints characters letter by letter
         terminal_buffer[vga_index] = (unsigned short)str[index]|(unsigned short)color << 8;
         index++;
         vga_index++;
     }
 }
 
-void printChar(char str, unsigned char color) {
+void printChar(char str, unsigned char color) { // print one character, used for keyboardHandler
     int index = 0;
     terminal_buffer[vga_index] = str | (unsigned short)color << 8;
     index++;
@@ -34,6 +35,7 @@ void printChar(char str, unsigned char color) {
 }
 
 void newLine() {
+    // increments the vga_index until it is divisible by 80
     unsigned int calc_index = vga_index + 80;
     ifloor(calc_index);
     if ((calc_index % 80) == 0) {
@@ -84,7 +86,7 @@ int main() {
     newLine();
     print("    -----------------------------", WHITE);
     newLine();
-    print("Press Enter to continue.", WHITE);
+    print("Press Enter to continue.", GREEN);
     pause();
     newLine(); newLine(); newLine();
     print("-----------------------------", WHITE);
