@@ -3,5 +3,6 @@
 
 unsigned char getScancode();
 void keyboardHandler();
+void pause();
 
 #endif

@@ -67,7 +67,7 @@ void keyboardHandler()
 
         if (scancode == 0x39 && clicked == 0) {
            
-            character = ' ';
+            character = ' '; // space
             clicked = 1;
             canSend = 1;
            
@@ -320,4 +320,14 @@ void keyboardHandler()
         }
     }
 
+}
+
+void pause() {
+    while(1) {
+        unsigned char scancode;
+        scancode = getScancode();
+        if (scancode == 0x1C) {
+            break;
+        }
+    }
 }
