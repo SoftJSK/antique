@@ -30,8 +30,6 @@ void printChar(char str, unsigned char color) { // print one character, used for
     int index = 0;
     terminal_buffer[vga_index] = str | (unsigned short)color << 8;
     index++;
-    vga_index++;
-    
 }
 
 void newLine() {

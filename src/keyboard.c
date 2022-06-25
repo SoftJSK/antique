@@ -27,17 +27,12 @@ unsigned char getScancode()
 
 void keyboardHandler()
 {
-    unsigned char scancode;
-    unsigned int shift_key = 0;
-    scancode = getScancode();
-    canSend = 0;
-    int i = 1;
-    while (1) {
-        while (i == 1) {
-            scancode = getScancode();
-            i = 0;
-        }
-
+    while(1) {
+        unsigned char scancode;
+        unsigned int shift_key = 0;
+        scancode = getScancode();
+        canSend = 0;
+        int i = 1;
         if (scancode == 0x2A)
         {
             shift_key = 1;//Shift key is pressed
@@ -58,7 +53,6 @@ void keyboardHandler()
                 clicked = 0; // tab, resets stuff
                 clearScreen();
             }
-
             if (scancode == 0x0e) {
                 clicked = 0; // backspace
                 vga_index--;
@@ -299,8 +293,7 @@ void keyboardHandler()
                 canSend = 1;
             }
             if (scancode == 0x2D && clicked == 0) {
-
-                character = 'x';
+                character = 'y';
                 clicked = 1;
                 canSend = 1;
             }
@@ -320,12 +313,10 @@ void keyboardHandler()
                 printChar(character, WHITE);
                 clicked = 0;
                 canSend = 0;
-                vga_index++;
                 scancode = getScancode();
             }
         }
     }
-
 }
 
 void pause() {
