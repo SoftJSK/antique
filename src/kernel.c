@@ -83,10 +83,7 @@ int main() {
     print("  \\                               /", WHITE);
     newLine();
     print("    -----------------------------", WHITE);
-    newLine();
-    print("Press Enter to continue.", GREEN);
-    pause();
-    newLine(); newLine(); newLine();
+    newLine(); newLine();
     print("-----------------------------", WHITE);
     newLine();
     print("Welcome to Antique!", WHITE);
@@ -100,5 +97,11 @@ int main() {
     newLine();
     print("-----------------------------", WHITE);
     newLine();
+    print("Press Enter to continue.", GREEN);
+    pause();
+    newLine();
+    clearScreen();
+    print("vintage > ", WHITE);
+    print("this is a placeholder", WHITE);
     return 0;
 }

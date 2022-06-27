@@ -32,7 +32,9 @@ void keyboardHandler()
         unsigned int shift_key = 0;
         scancode = getScancode();
         canSend = 0;
-        int i = 1;
+        if (scancode == 0x1C) {
+            break;
+        }
         if (scancode == 0x2A)
         {
             shift_key = 1;//Shift key is pressed
